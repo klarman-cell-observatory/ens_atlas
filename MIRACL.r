@@ -22,7 +22,7 @@ library(dnormpar2)
 # let's us refine our estimates for the other parameters, allowing us to gradually
 # ease the odds ratio cutoff, only removing the highest confidence doublets at
 # each step. To do this, just run the following code:
-# > res = find_doublets(data, ident, sig.use, pd=.25, min_odds=c(8,7,6,5,4,3,2,1))
+# > res = find_doublets(data, ident, sig.use, pd=.25, min_odds=c(8,7,6,5,4,3,2,1,4))
 # The result is a list, which for each iteration, returns important information.
 # To get the final doublet estimates, you therefore want the last list element:
 # > res.final = res[[length(res)]]
@@ -32,8 +32,18 @@ library(dnormpar2)
 # > res.final$doublets
 #
 # Quick example:
-# > res = find_doublets(data, ident, sig.use, pd=.25, min_odds=c(8,7,6,5,4,3,2,1))
+# > res = find_doublets(data, ident, sig.use)
 # > doublets = res[[length(res)]]$doublets
+#
+# Note:
+# If this method is under- or over-classifying doublets, you may need to adjust
+# the odds ratio cutoffs. For example, to use a more strict cutoff, you can use:
+# > min_odds = c(8,7,6,5,4,3,2,1,8) # final odds cutoff = 8
+# Or to use a less stringent cutoff, you could use:
+# > min_odds = c(8,7,6,5,4,3,2,1,1) # final odds cutoff = 1
+# You can also access the odds ratios themselves like this:
+# > res[[length(res)]]$odds
+# And select doublets using the doublet odds ratios in this matrix
 #
 # Please see "score_doublets" and "find_doublets" for additional information
 # -------------------------------------------------------------------------------
@@ -153,7 +163,7 @@ score_doublets = function(data, ident, sig, scores=NULL, doublets=NULL, pd=0.25,
 	
 }
 
-find_doublets = function(data, ident, sig, scores=NULL, doublets=NULL, pd=0.25, min_exp=1, min_odds=c(8,7,6,5,4,3,2,1)){
+find_doublets = function(data, ident, sig, scores=NULL, doublets=NULL, pd=0.25, min_exp=1, min_odds=c(8,7,6,5,4,3,2,1,4)){
     
     # Given normalized expression data and a list of gene signatures, iteratively infer putative doublets
     # ---------------------------------------------------------------------------------------------------
