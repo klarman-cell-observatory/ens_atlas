@@ -13,4 +13,8 @@ Before using this code, you must install the "dnormpar2" R package (included):
 This contains a fast method for calculating the doublet statistics. 
   
 ### Usage:
-Please see code comments for detailed usage instructions
+> source('MIRACL.r')
+> res = find_doublets(data, ident, sig.use, pd=.25, min_odds=c(8,7,6,5,4,3,2,1))
+> doublets = res[[length(res)]]$doublets
+
+Please see code comments for more detailed usage instructions.
