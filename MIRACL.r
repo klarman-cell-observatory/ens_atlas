@@ -153,7 +153,7 @@ score_doublets = function(data, ident, sig, scores=NULL, doublets=NULL, pd=0.25,
 	
 }
 
-find_doublets = function(data, ident, sig, scores=NULL, doublets=NULL, pd=0.25, min_exp=1, min_odds=c(4,2,1,1)){
+find_doublets = function(data, ident, sig, scores=NULL, doublets=NULL, pd=0.25, min_exp=1, min_odds=c(8,7,6,5,4,3,2,1)){
     
     # Given normalized expression data and a list of gene signatures, iteratively infer putative doublets
     # ---------------------------------------------------------------------------------------------------
