@@ -2,7 +2,7 @@
 Drokhlyansky, Smillie, van Wittenberghe, et al. (Cell, 2020)
 
 ### Description:
-This file contains code for detecting heterotypic multiplets in MIRACL-Seq data. Code for other analyses found throughout the paper is available here:  
+This file contains code for detecting heterotypic multiplets in MIRACL-Seq data. Code for other analyses is available here:  
 https://github.com/cssmillie/ulcerative_colitis<br/>
 For other questions, please email Chris Smillie (cssmillie [AT] gmail.com). 
   
